@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Alert</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: monospace;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font-size: 40px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .warning {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .progress {
+            width: 80%;
+            margin: auto;
+            border: 2px solid lime;
+            padding: 5px;
+        }
+
+        .bar {
+            width: 0%;
+            height: 30px;
+            background-color: lime;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>⚠ SYSTEM HACKED ⚠</h1>
+
+<p class="warning">Your files are being deleted...</p>
+
+<div class="progress">
+    <div class="bar" id="bar"></div>
+</div>
+
+<p id="percent">0%</p>
+
+<script>
+    let width = 0;
+    let bar = document.getElementById("bar");
+    let percent = document.getElementById("percent");
+
+    let interval = setInterval(function () {
+        if (width >= 100) {
+            clearInterval(interval);
+            document.body.innerHTML = "<h1>😂 APRIL FOOL 😂</h1><p>Got you!</p>";
+        } else {
+            width++;
+            bar.style.width = width + "%";
+            percent.innerHTML = width + "%";
+        }
+    }, 50);
+</script>
+
+</body>
+</html>
